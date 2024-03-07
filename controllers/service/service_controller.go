@@ -28,13 +28,6 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/source"
 )
 
-const (
-	serviceFinalizer        = "service.k8s.aws/resources"
-	serviceTagPrefix        = "service.k8s.aws"
-	serviceAnnotationPrefix = "service.beta.kubernetes.io"
-	controllerName          = "service"
-)
-
 func NewServiceReconciler(cloud aws.Cloud, k8sClient client.Client, eventRecorder record.EventRecorder,
 	finalizerManager k8s.FinalizerManager, networkingSGManager networking.SecurityGroupManager,
 	networkingSGReconciler networking.SecurityGroupReconciler, subnetsResolver networking.SubnetsResolver,
